@@ -6,6 +6,8 @@ function Animal(_x, _y) constructor {
     
     hp = 1;
     
+    animal_data = ds_map_create();
+    
     method_step = function() {
         // struct instances have their own scope
         x += 2 * dcos(t);
@@ -13,8 +15,13 @@ function Animal(_x, _y) constructor {
         t += 2;
         
         if (keyboard_check_pressed(vk_anykey)) {
-            method_heal(1);
+            //method_heal(1);
+            method_speak();
         }
+    }
+    
+    method_speak = function() {
+        show_message("AAAAaaaaaaaa!");
     }
     
     method_draw = function() {
@@ -39,4 +46,28 @@ function Animal(_x, _y) constructor {
     method_heal(10);
 }
 
-doggo = new Animal(400, 400);
+function Doggo(_x, _y) : Animal(_x, _y) constructor {
+    hp = 5;
+    
+    method_speak = function() {
+        show_message("Woof!");
+    }
+    
+    method_draw = function() {
+        draw_set_color(c_red);
+        draw_rectangle(x - 16, y - 16, x + 16, y + 16, false);
+        draw_set_color(c_white);
+        draw_set_halign(fa_center);
+        draw_text(x, y - 50, "HP: " + string(hp));
+    }
+}
+
+function Beagle(_x, _y) : Doggo(_x, _y) constructor {
+    method_speak = function() {
+        show_message("Bark, bark!");
+    }
+}
+
+animal = new Animal(300, 300);
+doggo = new Doggo(500, 500);
+beagle = new Beagle(700, 700);

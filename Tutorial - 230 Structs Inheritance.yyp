@@ -1,9 +1,6 @@
 {
   "resources": [
     {"id":{"name":"Methods","path":"objects/Methods/Methods.yy",},"order":3,},
-    {"id":{"name":"scripts","path":"scripts/scripts/scripts.yy",},"order":11,},
-    {"id":{"name":"Inventory","path":"objects/Inventory/Inventory.yy",},"order":1,},
-    {"id":{"name":"Items","path":"objects/Items/Items.yy",},"order":2,},
     {"id":{"name":"Room","path":"rooms/Room/Room.yy",},"order":0,},
   ],
   "Options": [
